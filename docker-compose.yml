@@ -1,0 +1,14 @@
+version: '3.8' 
+
+services:
+  flask_app_sample:
+    build:  
+      context: ./app # Directory containing the Dockerfile and the source code
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: development  # Optional: set to 'development' to enable debug mode
+    volumes:
+      - ./app/src:/app  # Optional: Mount the project directory inside the container for live code reloading
